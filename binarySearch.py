@@ -29,15 +29,16 @@ def insertInPlace(orderedList, target):
 
     orderedList.insert(idx, target)
 
-targetsToTest = {
-    'insert': lambda x: x + 1,
-    'search': lambda x: -1,
+# Worst case scenario for each operation
+operationsWorstCase = {
+    'insert': lambda x: x + 1,  # insert a number bigger then all others
+    'search': lambda x: -1,  # search for a number that doesn't exist
 }
 
 
 def doPerformanceTest(operation):
     calculator = PerformanceCalculator()
-    calculator.calcPerformance(binarySearchContains, targetsToTest[operation])
+    calculator.calcPerformance(binarySearchContains, operationsWorstCase[operation])
 
 print("Search Performance")
 doPerformanceTest('search')
