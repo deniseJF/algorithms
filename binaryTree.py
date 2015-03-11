@@ -39,3 +39,21 @@ class BinaryTree:
             else:
                 node = node.right
         return False
+
+
+import random
+from time import time
+
+
+def performance():
+    n = 1024
+    while n < 65536:
+        bt = BinaryTree()
+        for i in range(n):
+            bt.add(random.randint(1, n))
+
+        now = time()
+        bt.contains(random.randint(1, n))
+        print(n, (time() - now) * 1000)
+
+        n *= 2
